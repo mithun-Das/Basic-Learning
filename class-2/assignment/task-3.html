@@ -1,0 +1,68 @@
+
+
+<script>
+
+
+      function myclosure(){
+
+
+         /******  Array Declare *******/
+
+      	
+          var data = [];
+
+
+          /****** Function which will set data  *******/
+
+          
+          function setterData(idNo,employeeName,pos){
+          	
+               var person = {id : idNo, name : employeeName , position : pos};
+
+               data.push(person);
+
+          }
+
+
+          /****** Function which will show elements of stored data *******/
+
+
+          function  getterData(){
+          	
+                   
+
+                var sz = data.length ; 
+
+                for(var i = 0; i < sz ; ++i)
+                     console.log(data[i].id + "  " + data[i].name + "  " + data[i].position);
+
+
+          }
+
+
+
+          return  {
+          	
+                  
+                 setter : setterData ,
+                 getter : getterData 
+
+          };
+          
+
+
+
+      }
+
+
+      var typeFix = myclosure();
+
+      
+      typeFix.setter(1,"Mithun", "S.engg");
+      typeFix.setter(2,"Micheal", "M.engg");
+      typeFix.setter(2,"Rafi", "E.engg");
+
+      typeFix.getter();
+
+
+</script>

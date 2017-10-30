@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<!--<script src="javascript.js"></script>
+<script>
+   alert("I am internal JavaScript!");
+</script>-->
+</head>
+<body>
+<a href="#" onclick="window.test()">Click me</a>
+
+
+ <!--<a href="#" onclick="alert('Hi');">Click Me</a>-->
+ 
+ <!-- 
+ primitive data types.
+	Number ex: var cars = 7;
+String ex: var city = "New York City";
+Boolean ex:  var pizzaIsGood = true;
+Null ex: var pears = null;
+Undefined ex:  var pineapples;
+ -->
+<!--
+Arithmetic Operators
+Addition , Subtraction, Multiplication,Division,Modulus
+    // adding numbers
+    var blueCars = 4;
+    var redCars = 5;
+
+    var totalCars = blueCars + redCars;
+
+    console.log("I have " + totalCars + " cars!");
+ -->
+ <!-- 
+ Math Properties
+  var euler = Math.E;
+  var pi = Math.PI;
+  
+  
+  Math Methods
+  Absolute Number
+
+    var a = 6;
+    var b = -13;
+    console.log("Absolute value of a is " + Math.abs(a) + ".");
+    console.log("Absolute value of b is " + Math.abs(b) + ".")
+	
+	Floor
+	var decimal = 24.942;
+    var floor = Math.floor(decimal);
+    console.log("The value of floor is " + floor + ".");
+	
+	Ceiling
+	The ceiling method rounds a number up to the nearest integer. Put a number inside  Math.ceil() and you're good to go.
+	var decimal = 13.37;
+    var ceiling = Math.ceil(decimal);
+    console.log("The value of ceiling is " + ceiling + ".");
+	
+	Logarithm
+	You can get the natural logarithm of a number using the Math.log() method.
+	var number = Math.log(1);
+    console.log("The value of number is " + number + ".")
+	
+	Maximum
+	var number = Math.max(14, 349);
+    console.log("The value of number is " + number + ".");
+	
+	Minimum
+	var number = Math.min(53, 94);
+    console.log("The value of number is " + number + ".")
+	
+	Power
+	var number = Math.pow(3, 2);
+    console.log("The value of number is " + number + ".");  // RETURN INFINITY IF NUMBER GETS VERY BIG
+	
+	Random
+	var random = Math.random();
+    console.log("The value of random is " + random + ".");  //  Return a random number between 0 (inclusive) and 1 (exclusive):
+	
+	Round
+	var rounded = Math.round(3.1459);
+    console.log("The value of rounded is " + rounded + ".");
+	
+	Square Root
+	var root = Math.sqrt(49);
+    console.log("The value of root is " + root + ".");
+ !-->
+ 
+ <!-- 
+ Functions 
+
+ function introduction() {
+        console.log("Hello, my name is Jessica.");
+    }
+	
+
+    
+    
+    /************************** Mithun  **************************/
+
+
+
+   <script>
+
+          function myfunction(var1,var2){
+
+
+                  if(var2 === undefined){
+
+                        console.log("UnDefined");
+
+                  }
+                  else
+                        console.log("Defined");
+
+
+                 console.log(var1 + " " + var2);
+
+
+          }
+
+
+          myfunction("Mithun");
+
+
+
+
+
+   </script>
+
+
+
+
+   <script>
+
+          function myfunction(var1,var2 = 30){
+
+
+                  if(var2 === undefined){
+
+                        console.log("UnDefined");
+
+                  }
+                  else
+                        console.log("Defined");
+
+
+                 console.log(var1 + " " + var2);
+
+
+          }
+
+
+          myfunction("Mithun" , "Das");
+
+
+
+
+
+   </script>
+
+
+
+   <script>
+
+          function myfunction(var1,var2 = anotherfunction()){
+
+
+                  if(var2 === undefined){
+
+                        console.log("UnDefined");
+
+                  }
+                  else
+                        console.log("Defined");
+
+
+                 console.log(var1 + " " + var2);
+
+
+          }
+
+
+          function anotherfunction(){
+            
+               return "Das" ;
+
+          }
+
+
+          myfunction("Mithun");
+
+
+
+
+
+   </script>
+   
+
+      <script>
+
+
+      Never add a newline between return and the value
+
+          function myfunction(){
+
+
+                   
+
+                   return
+                    (2 * 3 + 6);
+
+
+          }
+
+
+          console.log(myfunction());
+
+
+   </script>
+
+
+      <script>
+
+          function myfunction(var1){
+
+
+                   
+                                                     // The NaN property represents "Not-a-Number" value. This property indicates that a value is not a legal number.
+                   return (2 * 3 + var1);
+
+
+          }
+
+
+          console.log(myfunction());
+
+
+   </script>
+
+      <script>
+
+
+           var func = function(){
+             
+                        
+                      console.log("OK");  
+                  
+
+           }
+
+           func();
+
+
+
+
+
+   </script>
+ 
+   <script>
+           
+          let age = prompt("What is your age?", 18);
+
+          // conditionally declare a function
+          if (age < 18) {
+
+            function welcome() {
+              alert("Hello!");
+            }
+
+          } else {
+
+            function welcome() {
+              alert("Greetings!");
+            }
+
+          }
+
+          // ...use it later
+          welcome(); // Error: welcome is not defined
+
+   </script>
+
+
+
+
+
+   <script>
+          
+
+           function myfunction(fun1,fun2,qs){ /* myfunction(qs,fun1,fun2)  */
+             
+
+                
+                if(qs == undefined)
+                   fun1();
+                else
+                   fun2();
+                
+
+
+           }
+
+
+           function function1(){
+             
+
+               console.log("Inside function1");
+
+           }
+
+
+
+           function function2(){
+             
+               console.log("Inside function2");
+
+           }
+
+
+           myfunction(function1,function2);
+
+
+
+
+
+   </script>
+
+
+   Objects are Passed by Reference
+
+
+   <script>
+
+     x = findMax(1, 123, 500, 115, 44, 88);
+
+function findMax() {
+    var i;
+    var max = -Infinity;
+    for (i = 0; i < arguments.length; i++) {
+        if (arguments[i] > max) {
+            max = arguments[i];
+        }
+    }
+    return max;
+}
+
+   </script>
+
+   /*****************************  OBJECT *************************************/
+
+
+
+      <script>
+
+       
+      
+           var obj = {firstname : "mithun", lastname: "Das"} ;
+
+           obj.firstname = "Micheal" ;
+
+
+           console.log(obj.firstname);
+
+  
+
+
+
+   </script>
+
+   //  Objects are mutable: They are addressed by reference, not by value.
+
+If person is an object, the following statement will not create a copy of person
+
+      <script>
+           
+           var obj = {firstname : "mithun", lastname: "Das"} ;
+
+           var newobject = obj;
+
+           console.log(obj.firstname);
+           console.log(newobject.firstname);
+            
+           obj.firstname = "Micheal" ;
+           newobject.firstname = "Talikder" ;
+
+           console.log(obj.firstname);
+           console.log(newobject.firstname);
+    
+      
+
+    </script>
+
+
+       <script>
+               
+      
+           var obj = new Object() ;
+
+           obj.firstname = "mithun";
+           obj.lastname  = "das";
+
+           var newobject =obj;
+
+           console.log(obj.firstname);
+           console.log(newobject.firstname);
+            
+           obj.firstname = "Micheal" ;
+           newobject.firstname = "Talikder" ;
+
+           console.log(obj.firstname);
+           console.log(newobject.firstname);
+
+
+           obj.age = 50;
+
+           console.log(obj.age);
+           console.log(newobject.age);
+
+
+   </script>
+
+   // Object property can be added dynamically
+
+   The delete operator is designed to be used on object properties. It has no effect on variables or functions.
+
+The delete operator should not be used on predefined JavaScript object properties. It can crash your application.
+
+      <script>
+               
+      
+           var obj = {firstname : "mithun", lastname: "Das"} ;
+
+           var newobject = obj;
+
+           obj.age = 50 ;
+
+
+           console.log(obj.age);
+           console.log(newobject.age);
+           console.log( obj);
+
+
+   </script>
+
+ //  The value of this, when used in a function, is the object that "owns" the function.
+
+// The value of this, when used in an object, is the object itself.
+
+// The this keyword in an object constructor does not have a value. It is only a substitute for the new object.
+
+// The value of this will become the new object when the constructor is used to create an object.
+
+
+
+     <script>
+               
+      
+           function construct(var1,var2){
+             
+                  this.firstname = var1 ;
+                  this.lastname  = var2 ;
+
+                  return (3 * 4) ;
+
+
+           }
+
+           var obj = new construct("Mithun" , "Das");
+           var newobject = new construct("Michael" , "Murray");
+           var myobject = obj;
+
+           myobject.firstname = "Niro" ;
+
+           console.log(obj.firstname);
+           console.log(newobject.firstname);
+           console.log( obj.firstname);
+           console.log(construct());
+
+
+   </script>
+
+
+
+  <script>
+           
+           
+           var firstname;         
+      
+           function construct(var1,var2){
+
+                  var firstname;
+             
+                  this.firstname = var1 ;
+                  this.lastname  = var2 ;
+
+                  return (3 * 4) ;
+
+
+           }
+
+           var obj = new construct("Mithun" , "Das");
+           var newobject = new construct("Michael" , "Murray");
+           var myobject = obj;
+
+           myobject.firstname = "Niro" ;
+
+           console.log(obj.firstname);
+           console.log(newobject.firstname);
+           console.log( obj.firstname);
+           console.log(construct());
+
+
+   </script>
+
+
+
+   /************************** ARRAY **************************/
+
+
+
+      <script>
+           
+
+         var arr = [1,2,3,function(var1){
+           
+              return var1 * var1 ;
+
+         }, {fname : "Mithun" , lname : "Das"}];
+
+
+         console.log(arr);
+         console.log(arr[3](5));
+         console.log(arr[4].fname);           
+      
+   </script>
+
+
+ /**************************  Closure ***********************/
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    /********************** Mithun End **************************/
+
+
+	Private and Public properties and methods
+	
+	var myPrivateVar, myPrivateMethod;
+ 
+	  // A private counter variable
+	  myPrivateVar = 0;
+	 
+	  // A private function which logs any arguments
+	  myPrivateMethod = function( foo ) {
+		  console.log( foo );
+	  };
+	 
+	  return {
+	 
+		// A public variable
+		myPublicVar: "foo",
+	 
+		// A public function utilizing privates
+		myPublicFunction: function( bar ) {
+	 
+		  // Increment our private counter
+		  myPrivateVar++;
+	 
+		  // Call our private method using bar
+		  myPrivateMethod( bar );
+	 
+		}
+	  };
+	
+	
+	(function () { //immediately-invoked function expression (IIFE)
+		"use strict"; 
+		var foo = 42; 
+	})()
+	
+	
+	var FeedReader = {
+ 
+    settings: {
+        feedItemsCount: 10,
+        url: 'http://someurl.com/news/feed/',
+        feedListing: $('div#feedListing'),
+        loadFeedButton: $('a.loadFeed')
+    },
+ 
+    init: function () {
+        FeedReader.showErrorIfSourceDead();
+        FeedReader.bindUI();
+    },
+ 
+    bindUI: function () {
+        FeedReader.settings.loadFeedButton.on('click', function ( e ) {
+            e.preventDefault();
+            FeedReader.fetchFeed();
+        });
+    },
+ 
+    showErrorIfSourceDead: function () {
+        if ( FeedReader.isSourceAlive( FeedReader.settings.url ) === false ) {
+            alert("The URL provided can't be used to fetch feed.");
+        }
+    },
+ 
+    isSourceAlive: function () {
+       // ...
+    },
+ 
+    fetchFeed: function () {
+        // Fetch feed from the `FeedReader.settings.url`
+        // Append the feed to the `FeedReader.settings.feedListing`
+    }
+	
+	
+	
+	
+};
+	
+Closure
+//A closure is an inner function that has access to the outer (enclosing) function's variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function's variables, and it has access to the global variables.
+A Basic Example of Closures
+function showName (firstName, lastName) {
+​		var nameIntro = "Your name is ";
+	// this inner function has access to the outer function's variables, including the parameter​
+​		function makeFullName () {       
+​			return nameIntro + firstName + " " + lastName;  
+	}
+​
+​		return makeFullName ();
+}
+​
+showName ("Michael", "Jackson"); // Your name is Michael Jackson
+
+Closures store references to the outer function’s variables
+function celebrityID () {
+    var celebrityID = 999;
+    // We are returning an object with some inner functions​
+    // All the inner functions have access to the outer function's variables​
+    return {
+        getID: function ()  {
+            // This inner function will return the UPDATED celebrityID variable​
+            // It will return the current value of celebrityID, even after the changeTheID function changes it​
+          return celebrityID;
+        },
+        setID: function (theNewID)  {
+            // This inner function will change the outer function's variable anytime​
+            celebrityID = theNewID;
+        }
+    }
+​
+}
+​
+​var mjID = celebrityID (); // The celebrityID outer function has returned.​
+mjID.getID(); // 999​
+mjID.setID(567); // Changes the outer function's variable​
+mjID.getID(); // 567: It returns the updated celebrityId variable
+ -->
+ <!--
+ Understanding scope
+ Global Scope
+ var name = 'Foobar';
+function sayHello() {
+    // Hello Foobar
+    alert('Hello ' + name);
+}
+
+Local Scope
+function sayHello() {
+    var name = 'Foobar';
+
+    // Hello Foobar!
+    alert( 'Hello ' + name );
+}
+// Uncaught ReferenceError: name is not defined
+alert( 'Hello ' + name );
+
+var parentScope = function () {
+    
+    // Uncaught ReferenceError: grandChild is not defined
+    alert( grandChild );
+
+    var childScope = function () {
+
+        // Uncaught ReferenceError: grandChild is not defined
+        alert( grandChild );
+
+        var grandChildScope = function () {
+            var grandChild = 'Secret from all my parents but my scope and any of my children scopes can access me.'
+
+            var superChild = function () {
+                // Output: Secret from all my parents but my scope and any of my children scopes can access me.
+                alert( grandChild );
+            }
+        }
+    }
+}
+
+
+ -->
+ 
+ <!--
+ Arrays
+ Creation, Retrieval, Reassignment
+ var drinks = ["water", "juice", "milk", "soda"];
+ for(var i = 0; i < drinks.length; i++) {
+     console.log(drinks[i]);
+ }
+ 
+ Useful Array Methods
+ var drinks = ["water", "juice", "milk", "soda"];
+ var sortedDrinks = drinks.sort();
+ console.log(sortedDrinks);
+ 
+ var drinks = ["water", "juice", "milk", "soda"];
+ drinks.push("tea"); // add "tea" to the end of this array
+ console.log(drinks);
+ 
+ var drinks = ["water", "juice", "milk", "soda"];
+ drinks.pop(); // remove the last item in this array
+ console.log(drinks);
+ 
+ var healthyDrinks = ["water", "milk"];
+ var unhealthyDrinks = ["juice", "soda"];
+ var allDrinks = healthyDrinks.concat(unhealthyDrinks);
+ onsole.log(allDrinks);
+ -->
+ 
+ <!-- 
+ Object
+ Creation, Retrieval, Reassignment
+var newObject = {};
+// or
+var newObject = Object.create( Object.prototype );
+// or
+var newObject = new Object(); 
+ -->
+ 
+ <!--
+ Document Object Model
+ Creating Elements
+ var span = document.createElement("span");
+ span.setAttribute("class", "date");
+ span.textContent = new Date().toDateString();
+ document.body.appendChild(span);
+ 
+ Getting Elements
+ <div id="apple">Apples taste good.</div>
+ <div class="pears">Pears also taste good.</div>
+ <span>Same goes with oranges.</span>
+ <script>
+	var apples = document.querySelector("#apple");
+	var pears = document.querySelector(".pears");
+	var oranges = document.querySelector("span");
+
+	console.log(apples);
+	console.log(pears);
+	console.log(oranges);
+	
+	<div class="fruit">Apples taste good.</div>
+	<div class="fruit">Pears also taste good.</div>
+	<div class="fruit">Same goes with oranges.</div>
+	var fruits = document.querySelectorAll(".fruit");
+    console.log(fruits);
+ </script>
+ 
+ 
+ Removing Elements
+ <div class="parent">
+	<span class="kid">I am a kid that will be removed.</span>
+	<span class="teen">I am a teen that will be removed.</span>
+ </div>
+ <script>
+	var parent = document.querySelector(".parent");
+	var kid = document.querySelector(".kid");
+	parent.removeChild(kid);
+
+	var teen = document.querySelector(".teen");
+	teen.parentNode.removeChild(teen);
+ </script>
+ -->
+ <!-- 
+ Handle browser events.
+ Adding an Event Listener
+ <button id="button">Click here for a console log!</button>
+ <script>
+	// first, get the button
+	var button = document.querySelector("#button");
+
+	// second, define what you want to happen
+	var clickCallback = function(event) {
+		console.log("You've clicked on the button!");
+	}
+
+	// third, add the event listener on the click event
+	button.addEventListener("click", clickCallback);
+ </script>
+ --> 
+ 
+ <!--
+ JSON
+ string,number,object,array,boolean,null
+ 
+ Stringify
+ var dog = {
+  "name": "Sophie",
+  "age": 3,
+  "weight": 20
+ }
+ var dogJSON = JSON.stringify(dog);
+ console.log(dogJSON);
+ 
+ Parse
+ var json = '{"name":"Sophie","age":3,"weight":20}';
+ var dog = JSON.parse(json);
+ console.log(dog);
+ 
+ Making AJAX Calls
+ // base url
+ var base = 'https://jsonplaceholder.typicode.com';
+ // use fetch on the /posts route, then pass the response along
+ fetch(base + "/posts").then(function(response) {
+     // with the response, convert it to JSON, then pass it along
+     response.json().then(function(json) {
+         // print that JSON
+         console.log(json);
+     });
+ });
+ -->
+ <!--
+ Cookies
+ Creating a Cookie
+ <script>
+	  function createCookie(key, value) {
+		 var cookie = escape(key) + "=" + escape(value) + ";";
+		 document.cookie = cookie;
+		 console.log(cookie);
+		 console.log("Creating new cookie with key: " + key + " value: " + value);
+	  }
+	  createCookie("sport", "basketball");
+	  createCookie("icecream", "vanilla");
+  </script>
+  
+  Setting an Expiration date on Cookies
+  function createCookie(key, value, date) {
+       var expiration = new Date(date).toUTCString();
+       var cookie = escape(key) + "=" + escape(value) + ";expires=" + expiration + ";"; //The escape() function was deprecated in JavaScript version 1.5. Use encodeURI() or encodeURIComponent() instead
+       document.cookie = cookie;
+       console.log(cookie);
+       console.log("Creating new cookie with key: " + key + " value: " + value + " expiration: " + expiration);
+    }
+    createCookie("sport", "basketball", Date.UTC(2017, 8, 1));
+    createCookie("icecream", "vanilla", Date.UTC(2017, 8, 1));
+	
+	Reading Cookies
+	function readCookie(name) {
+        var key = name + "=";
+        var cookie = document.cookie.split(';');
+        for(var i = 0; i < cookie.length; i++) {
+            var c = cookie[i];
+            while (c.charAt(0) === ' ') {//The charAt() method returns the character at the specified index in a string
+                c = c.substring(1, c.length);
+            }
+            if (c.indexOf(key) === 0) {
+                return c.substring(key.length, c.length);
+            }
+        }
+        return null;
+    }
+	
+	Deleting Cookies
+	function deleteCookie(name) {
+        createCookie(name, "", -1);
+    }
+	
+	Local Storage
+	Saving Data
+	localStorage.setItem("restaurant", "chipotle");
+	var game = {
+        "name": "Rocket League",
+        "release": 2015,
+        "developer": "Psyonix"
+    }
+    var gameJSON = JSON.stringify(game);
+    localStorage.setItem("game", gameJSON);
+	
+	Reading Data
+	var restaurant = localStorage.getItem("restaurant");
+    console.log(restaurant);
+ -->
+ <script src="app.js"></script>
+</body>
+
+</html>

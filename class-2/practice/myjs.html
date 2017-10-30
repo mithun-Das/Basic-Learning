@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+
+</head>
+
+
+<body>
+
+   <script>
+           
+         
+         var name ;
+
+
+         function outerfunction(){
+           
+
+             name = "Mithun" ;
+
+
+
+             return function() {
+               
+                 return name ;
+
+
+             };
+
+         }
+
+
+         //name = "Miceal";
+
+
+         var work = outerfunction();
+
+         console.log(work());
+         
+         debugger;
+
+
+
+   </script>
+    
+    
+
+
+</body>
+
+
+
+</html>

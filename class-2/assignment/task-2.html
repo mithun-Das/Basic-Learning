@@ -1,0 +1,124 @@
+
+<script>
+
+
+
+           /****   Global Array Declare  *****/
+            
+            var arr = [1,2,3] ;
+
+
+            /**** Function add element at the begining of the array  ****/
+
+            function  addFirst(var1){
+
+                
+                arr.unshift(var1);
+
+            }
+
+
+
+            /**** Function add element at the end of the array  ****/
+
+
+            function  addLast(var1){
+
+                
+                arr.push(var1);
+
+            }
+
+
+
+            /**** Function delete element at the begining of the array  ****/      
+
+            function  deleteFirst(){
+
+                
+                arr.shift();
+
+            }
+
+
+
+            /**** Function delete element at the last of the array  ****/
+
+            function  deleteLast(){
+
+                
+                arr.pop();
+
+            }
+
+
+
+            /**** Function return the size of the array  ****/
+
+            function  findSize(){
+
+                
+                return arr.length;
+
+            }
+
+
+
+            /**** Function add element according to index in the array  ****/
+
+            function  addElementById(index,value){
+                
+                   arr.splice(index,1,value);
+
+
+            }
+
+
+            /**** Function delete element according to index in the array  ****/
+
+            function  deleteElementById(index){
+                
+                   arr.splice(index,1);
+
+
+            }
+
+
+
+            /**** Function show every single element of the array  ****/
+
+            function  valueShow(){
+
+                
+                var sz = arr.length;
+
+                for(var i = 0; i < sz ; ++i)
+                	console.log(arr[i]);
+
+
+              //  for(var element in arr)
+                //	console.log(element);
+            }
+
+
+
+            valueShow();
+            addFirst(10);
+            addLast(20);
+            valueShow();
+            deleteFirst();
+            deleteLast();
+            valueShow();
+
+            addElementById(3,4);
+            valueShow();
+
+            deleteElementById(3);
+            valueShow();
+
+            console.log(arr.length);
+
+
+
+
+</script>

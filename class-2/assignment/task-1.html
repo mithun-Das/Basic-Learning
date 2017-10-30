@@ -1,0 +1,36 @@
+
+<script>
+//start firs task
+
+	    function constructor(var1, var2){
+	         this.base = var1;
+	         this.exponent  = var2 ;
+
+	         this.power = function(){
+	         	
+	              var result = 1;
+	              debugger;
+	              for(var i = 1; i <= this.exponent; ++i){
+	              	
+	              	  result *= this.base;
+	              }
+
+
+	              return result;
+
+	         }
+
+
+
+	    }
+
+
+	    var myobject = new constructor(2,4);
+	    var myobject1 = new constructor(3,5);
+	    console.log(myobject.power());
+	    console.log(myobject1.power());
+//end  firs task
+
+//start firs task
+
+</script>
