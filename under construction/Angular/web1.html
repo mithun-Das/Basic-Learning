@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+
+<HTML>
+
+
+  <head>
+  	
+       
+
+       <script  src="angular.js" >  </script>
+
+
+  </head>
+
+
+   
+  <body>
+  	
+
+
+      <div ng-app="myapp" ng-controller="myctrl">
+
+
+      	 <input type="text" ng-model="name">
+
+      	 <p  ng-bind="name" ></p>
+      	 <p>  {{ name }}  </p>
+		 <p>  Sum :  {{  7 + 7  }} </p>
+
+ 
+      </div>
+
+
+
+
+      <script>  
+
+
+          let app = angular.module('myapp' , []) ;
+
+             
+              app.controller('myctrl' , function($scope)  {
+
+
+              			$scope.name = "Mithun" ;		
+
+
+
+              });
+
+
+      </script>
+
+       	
+
+
+
+  </body> 
+
+
+
+
+
+</HTML>
