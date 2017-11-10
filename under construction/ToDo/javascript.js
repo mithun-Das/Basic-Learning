@@ -67,7 +67,8 @@ window.onload = function() {
 
           localStorage.setItem("allData" , JSON.stringify(dataList));
 
-          decideToShowOrRemove(taskObject) ;
+          addShowList(taskObject) ;
+          decideToShowOrHide(taskObject) ;
 
           document.getElementById("task").value = "" ;              // Make the input field null again 
 
@@ -75,22 +76,20 @@ window.onload = function() {
 
 
 
-    /*****************  Decide to show an element in the current list on viewport  ***********/
+    /*****************  Decide to show or hide an element in the current list on viewport  ***********/
 
 
-     function decideToShowOrRemove(taskObject){
+     function decideToShowOrHide(taskObject){
 
           
           let mode = localStorage.getItem("currentMode");
 
-
-          if(document.getElementById(taskObject.task) == null )
-           	  addShowList(taskObject) ;
-          else if(mode =="all"  || taskObject.status == mode )
-          	  addShowList(taskObject);
+          if(mode == "all")
+          	return ;
+          else if(taskObject.status == mode)
+          	return ;
           else
-              removeFromShowList(taskObject.task);
-     
+          	document.getElementById(taskObject.task).style.display = 'none' ;
 
     }
 
@@ -98,7 +97,7 @@ window.onload = function() {
     /************  Add Element To The Show List *****************/
 
 
-     function addShowList(taskObject){
+     function addShowList(taskObject, flag=false){
 
           
           let ul = document.getElementById("showList");
@@ -112,8 +111,11 @@ window.onload = function() {
 
           li.id = taskObject.task ;
           input.setAttribute("type" , "checkbox");
-          input.addEventListener("click" , function() { doStatusChangeInLocalstorage(taskObject.task) ; });        
+          input.checked = flag ;       
           label.innerText = taskObject.task ;
+
+          input.addEventListener("click" , function() { doStatusChangeInLocalstorage(taskObject.task) ; });
+          edit.addEventListener("click" , makeEditField ) ;
 
 
 		  li.appendChild(input);
@@ -126,6 +128,9 @@ window.onload = function() {
      } 
 
 
+    
+
+     /*************  Remove element from show list **************/
 
      function removeFromShowList(task){
 
@@ -165,7 +170,7 @@ window.onload = function() {
 
                     dataList[i] = taskObject ;
                     localStorage.setItem("allData" , JSON.stringify(dataList));
-                    decideToShowOrRemove(taskObject);
+                    decideToShowOrHide(taskObject);
                     break;	
                 }
 
@@ -174,22 +179,88 @@ window.onload = function() {
      }  
 
 
+     /**************   Show List Element according to Mode button click *************/
+
+
+     function  showListInMode(showingMode){
+
+         
+         let currentMode = localStorage.getItem("currentMode");
+         let dataList = JSON.parse(localStorage.getItem("allData"));
+
+
+      //   if(currentMode == showingMode)
+      //   	return ;
+        // else
+         	localStorage.setItem("currentMode" , showingMode);
+
+
+
+         for(let i = 0;i < dataList.length ; ++i){
+
+
+         	  if(dataList[i].status == showingMode || showingMode == "all"){
+         	  	 document.getElementById(dataList[i].task).style.display = 'block' ;
+         	  }
+         	  else
+                 document.getElementById(dataList[i].task).style.display = 'none' ;
+
+         }
+
+     }
+
+
+
+     function  buildShowList(){
+
+
+           let dataList = JSON.parse(localStorage.getItem("allData")) ;
+           let flag;
+
+
+           for(let i = 0; i < dataList.length ; ++i){
+
+
+                if(dataList[i].status == "completed")
+                	 flag = true ;
+                else 
+                     flag = false ;
+
+               addShowList(dataList[i] , flag);      	
+
+           }
+
+     }
+
+
+
+     function makeEditField(){
+
+          
+          document.getElementById("addButton")
+
+
+     }
+
+
+
+
+
+
+
+
      /********************  Add Event Listener to HTML DOM Element ********************/
 
    document.getElementById("addButton").addEventListener("click" , addTaskLocalstorage);
-  // document.getElementById("all").addEventListener("click" , );
-
-
+   document.getElementById("all").addEventListener("click" , function() { showListInMode("all") ; });
+   document.getElementById("active").addEventListener("click" , function() { showListInMode("active") ; });
+   document.getElementById("completed").addEventListener("click" , function() { showListInMode("completed") ; });
 
 
     /***********  Primary Necessary function Call ***********/
 
 
     initialize();
-
-
-
-
-
+    buildShowList();
 
 }
