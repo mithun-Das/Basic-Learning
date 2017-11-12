@@ -109,11 +109,16 @@ window.onload = function() {
           input.setAttribute("type" , "checkbox");
           input.checked = flag ;       
           label.innerText = taskObject.task ;
+          edit.className = "singleButton";
+          del.className = "singleButton" ;
+          edit.innerText = "Edit" ;
+          del.innerText = "Delete" ;
 
           input.addEventListener("click" , function() { doStatusChangeInLocalstorage(taskObject.task) ; });
-          edit.addEventListener("click" ,  function() { makeEditField(taskObject.task) ;   } ) ;
-          del.addEventListener("click" , function() { doDeleteFromLocalStorage(taskObject.task) ; } ) ;
-          del.addEventListener("click" , function() { removeFromShowList(taskObject.task) ; } )
+          edit.addEventListener("click" ,  function() { makeEditField(li) ;   } ) ;
+          del.addEventListener("click" , function() { doDeleteFromLocalStorage(li) ; } ) ;
+          del.addEventListener("click" , function() { removeFromShowList(li) ; } );
+
 
 
 		  li.appendChild(input);
@@ -130,13 +135,12 @@ window.onload = function() {
 
      /*************  Remove element from show list **************/
 
-     function removeFromShowList(task){
+     function removeFromShowList(li){
 
              
           let parent = document.getElementById("showList");
-          let child  = document.getElementById(task);
 
-          parent.removeChild(child);
+          parent.removeChild(li);
 
      } 
 
@@ -235,14 +239,16 @@ window.onload = function() {
 
 
      /*******************   Create edit field to edit a task  ***************/ 
+     
+     let prevli;
 
-     function makeEditField(task){
+     function makeEditField(li){
           
-    
+          prevli = li;
           document.getElementById("addButton").style.display = 'none' ;
           document.getElementById("editButton").style.display = 'block' ;
-          document.getElementById("task").value = task;
-          document.getElementById("editButton").addEventListener("click" , function() {  doEdit(task) ; }); 
+          document.getElementById("task").value = li.id ;
+           
 
      }
 
@@ -251,24 +257,23 @@ window.onload = function() {
     /************ Edit processes are controlled by this function ****************/
 
 
-    function doEdit(prevTask){
+    function doEdit(){
 
 
         if(validation() == false)
                return ;
 
-        let editedTask = document.getElementById("task").value ;   
+        doEditInLocalstorage(prevli) ;
+        doEditInShowList(prevli) ;
 
-        /*********** Going back to again add Task Field  ************/ 
+
+         /*********** Going back to again add Task Field  ************/ 
         
         document.getElementById("task").value = "" ;
         document.getElementById("editButton").style.display = 'none' ;
         document.getElementById("addButton").style.display = 'block' ;
 
         /*****************  End  ***********************/
-
-        doEditInLocalstorage(prevTask ,editedTask) ;
-        doEditInShowList(prevTask ,editedTask) ;
 
 
     }
@@ -277,9 +282,11 @@ window.onload = function() {
     /*************** Do the task edit in localStorage ****************/
 
 
-    function doEditInLocalstorage(prevTask ,editedTask){
+    function doEditInLocalstorage(li){
 
           let dataList = JSON.parse(localStorage.getItem("allData")) ;
+          let prevTask = li.id ;
+          let editedTask = document.getElementById("task").value ;
 
           for(let i = 0;i < dataList.length ; ++i){
 
@@ -299,25 +306,22 @@ window.onload = function() {
     /************ Show the edited task on showlist of viewpage  ****************/
 
 
-    function doEditInShowList(prevTask ,editedTask){
+    function doEditInShowList(li){
 
-            
-           document.getElementById(prevTask).children[1].innerText = editedTask ;
-           document.getElementById(prevTask).children[2].removeEventListener("click" , function() { makeEditField(prevTask) ; } );
-          // document.getElementById(prevTask).children[2].addEventListener("click" , function() { makeEditField(editedTask) ;  } );
-           document.getElementById(prevTask).id = editedTask ;
+            li.children[1].innerText = document.getElementById("task").value ;
+            li.id = document.getElementById("task").value ;
 
     }
 
 
 
-    function doDeleteFromLocalStorage(task) {
+    function doDeleteFromLocalStorage(li) {
     	
     	let dataList = JSON.parse(localStorage.getItem("allData")) ;
 
     	for(let i = 0;i < dataList.length ; ++i){
 
-    		 if(dataList[i].task == task){
+    		 if(dataList[i].task == li.id){
 
     		 	 dataList.splice(i, 1) ;
     		 	 localStorage.setItem("allData" , JSON.stringify(dataList));
@@ -328,11 +332,10 @@ window.onload = function() {
 
 
 
-
-
      /********************  Add Event Listener to HTML DOM Element ********************/
 
    document.getElementById("addButton").addEventListener("click" , addTaskLocalstorage);
+   document.getElementById("editButton").addEventListener("click" , doEdit);
    document.getElementById("all").addEventListener("click" , function() { showListInMode("all") ; });
    document.getElementById("active").addEventListener("click" , function() { showListInMode("active") ; });
    document.getElementById("completed").addEventListener("click" , function() { showListInMode("completed") ; });
