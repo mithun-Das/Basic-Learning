@@ -21,12 +21,8 @@ window.onload = function() {
          }
 
 
-         if(localStorage.getItem("currentMode") == "undefined" || localStorage.getItem("currentMode") == null){
-
               
-              localStorage.setItem("currentMode" , "all");
-
-         }
+         localStorage.setItem("currentMode" , "all");
 
     }
 
@@ -115,7 +111,9 @@ window.onload = function() {
           label.innerText = taskObject.task ;
 
           input.addEventListener("click" , function() { doStatusChangeInLocalstorage(taskObject.task) ; });
-          edit.addEventListener("click" , makeEditField ) ;
+          edit.addEventListener("click" ,  function() { makeEditField(taskObject.task) ;   } ) ;
+          del.addEventListener("click" , function() { doDeleteFromLocalStorage(taskObject.task) ; } ) ;
+          del.addEventListener("click" , function() { removeFromShowList(taskObject.task) ; } )
 
 
 		  li.appendChild(input);
@@ -210,7 +208,10 @@ window.onload = function() {
      }
 
 
+ 
+     /**********************    Build and show the task element on the viewpage  ******************/
 
+ 
      function  buildShowList(){
 
 
@@ -233,17 +234,97 @@ window.onload = function() {
      }
 
 
+     /*******************   Create edit field to edit a task  ***************/ 
 
-     function makeEditField(){
-
+     function makeEditField(task){
           
-          document.getElementById("addButton")
-
+    
+          document.getElementById("addButton").style.display = 'none' ;
+          document.getElementById("editButton").style.display = 'block' ;
+          document.getElementById("task").value = task;
+          document.getElementById("editButton").addEventListener("click" , function() {  doEdit(task) ; }); 
 
      }
 
 
 
+    /************ Edit processes are controlled by this function ****************/
+
+
+    function doEdit(prevTask){
+
+
+        if(validation() == false)
+               return ;
+
+        let editedTask = document.getElementById("task").value ;   
+
+        /*********** Going back to again add Task Field  ************/ 
+        
+        document.getElementById("task").value = "" ;
+        document.getElementById("editButton").style.display = 'none' ;
+        document.getElementById("addButton").style.display = 'block' ;
+
+        /*****************  End  ***********************/
+
+        doEditInLocalstorage(prevTask ,editedTask) ;
+        doEditInShowList(prevTask ,editedTask) ;
+
+
+    }
+
+
+    /*************** Do the task edit in localStorage ****************/
+
+
+    function doEditInLocalstorage(prevTask ,editedTask){
+
+          let dataList = JSON.parse(localStorage.getItem("allData")) ;
+
+          for(let i = 0;i < dataList.length ; ++i){
+
+                if(dataList[i].task == prevTask){
+
+                	dataList[i].task = editedTask ;
+                	localStorage.setItem("allData" , JSON.stringify(dataList));
+                	return ;
+                }
+
+
+          }
+
+    } 
+
+
+    /************ Show the edited task on showlist of viewpage  ****************/
+
+
+    function doEditInShowList(prevTask ,editedTask){
+
+            
+           document.getElementById(prevTask).children[1].innerText = editedTask ;
+           document.getElementById(prevTask).children[2].removeEventListener("click" , function() { makeEditField(prevTask) ; } );
+          // document.getElementById(prevTask).children[2].addEventListener("click" , function() { makeEditField(editedTask) ;  } );
+           document.getElementById(prevTask).id = editedTask ;
+
+    }
+
+
+
+    function doDeleteFromLocalStorage(task) {
+    	
+    	let dataList = JSON.parse(localStorage.getItem("allData")) ;
+
+    	for(let i = 0;i < dataList.length ; ++i){
+
+    		 if(dataList[i].task == task){
+
+    		 	 dataList.splice(i, 1) ;
+    		 	 localStorage.setItem("allData" , JSON.stringify(dataList));
+    		 	 return ;
+    		 }
+    	}
+    }
 
 
 
@@ -257,7 +338,7 @@ window.onload = function() {
    document.getElementById("completed").addEventListener("click" , function() { showListInMode("completed") ; });
 
 
-    /***********  Primary Necessary function Call ***********/
+    /***********  Primary Necessary function Call when the page is loaded ***********/
 
 
     initialize();
