@@ -121,8 +121,8 @@ window.onload = function() {
 
 
 
-		  li.appendChild(input);
-		  li.appendChild(label);
+    		  li.appendChild(input);
+    		  li.appendChild(label);
           li.appendChild(edit);
           li.appendChild(del);
           ul.appendChild(li);

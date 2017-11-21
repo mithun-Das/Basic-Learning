@@ -21,31 +21,13 @@
 .addButton{
 
   position : absolute ;
-  top : 400px ;
+  top : 350px ;
   width : 400px ;
 
 
 }
 
-.buttonList {
 
-
-	position : relative;
-	
-
-}
-
-
-.buttonList li {
-
-    position : relative;
-	display : inline;
-	bottom : 1000px;
-	left : 1000px;
-	bottom : 1100px;
-	padding-left: 100px;
-
-}
 
 .singleButton {
     background-color: #4CAF50;
@@ -69,19 +51,17 @@
 	height : 100%;
 }
 
+.tableData {
 
-.taskList {
-
-
-      position : relative ;
-      bottom : 1000px;
-      left : 1150px;
+  position: relative;
+  top : 550px;
 
 }
 
 
+.searchField {
 
-.taskList li{
-	display: block;
-	list-style-type: disc;
+   position : relative;
+   top : 500px;
+
 }
